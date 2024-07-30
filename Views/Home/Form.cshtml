@@ -1,0 +1,142 @@
+﻿@model TPLOCAL1_MHN.Models.FeedbackForm
+<head>
+    <title>Form</title>
+    <link rel="stylesheet" href="~/css/form.css" />
+</head>
+
+<body>
+    <header>
+        <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
+        <h1>Feedback Form TP HN</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="/Home/Index">Home</a>
+            </li>
+            <li>
+                <a href="/Home/Index/OpinionList">Feedback list</a>
+            </li>
+        </ul>
+    </nav>
+
+    <form asp-action="ValidationFormulaire" method="post">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <table class="table1" name="table1">
+            <tr>
+                <td colspan="2" style="border: none;">
+                    <p>Personal Information</p>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="LastName">Last Name</label></th>
+                <td>
+                    <input asp-for="LastName" type="text" placeholder="Enter your Last Name">
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="FirstName">First Name</label></th>
+                <td>
+                    <input asp-for="FirstName" type="text" placeholder="Enter your First Name">
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="Gender">Gender</label></th>
+                <td>
+                    <select asp-for="Gender">
+                        <option value="gender" selected>Select a gender</option>
+                        <option value="Man">Man</option>
+                        <option value="Women">Women</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="Adresse">Adresse</label></th>
+                <td>
+                    <input asp-for="Adresse" type="text" placeholder="Enter your Adresse" minlength="5">
+                    <span asp-validation-for="Adresse" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="ZipCode">Zip code</label></th>
+                <td>
+                    <input asp-for="ZipCode" type="text" placeholder="Enter your Zip Code" minlength="5" maxlength="5">
+                    <span asp-validation-for="ZipCode" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="Town">Town</label></th>
+                <td>
+                    <input asp-for="Town" type="text" placeholder="Enter your Town">
+                    <span asp-validation-for="Town" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="Email">Email Adresse</label></th>
+                <td>
+                    <input asp-for="Email" type="email" placeholder="johndoe@gmail.com">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </td>
+            </tr>
+        </table><br />
+
+        <table class="table2" name="talbe2">
+            <tr>
+                <td colspan="2" style="border: none;">
+                    <p>Training Information</p>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="Date">Start date training</label></th>
+                <td>
+                    <input type="date" asp-for="Date" max="2020-12-31">
+                    <span asp-validation-for="Date"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="Training">Type of Training</label></th>
+                <td>
+                    <select asp-for="Training">
+                        <option value="training" selected>Select a training</option>
+                        <option value="Cobol Training">Cobol Training</option>
+                        <option value="Object Training">Object Training</option>
+                        <option value="Dual Skills Training">Dual Skills Training</option>
+                    </select>
+                    <span asp-validation-for="Training" class="text-danger"></span>
+                </td>
+            </tr>
+        </table><br />
+
+        <table class="table3" name="table3">
+            <tr>
+                <td colspan="2" style="border: none;">
+                    <p>Training Reviews</p>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="Review1">Cobol Training</label></th>
+                <td>
+                    <textarea asp-for="Review1" rows="3" cols="30" placeholder="Write your reviews"></textarea>
+                </td>
+                <span asp-validation-for="Review1" class="text-danger"></span>
+            </tr>
+            <tr>
+                <th><label asp-for="Review2">C# Training</label></th>
+                <td>
+                    <textarea asp-for="Review2" rows="3" cols="30" placeholder="Write your reviews"></textarea>
+                </td>
+                <span asp-validation-for="Review2" class="text-danger"></span>
+            </tr>
+        </table><br />
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+</body>
+

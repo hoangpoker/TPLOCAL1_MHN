@@ -1,0 +1,96 @@
+﻿@model TPLOCAL1_MHN.Models.FeedbackForm
+<head>
+    <title>Validation Page</title>
+    <link rel="stylesheet" href="~/css/form.css" />
+</head>
+
+<body>
+    <header>
+        <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
+        <h1>Validation Page</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="/Home/Index">Home</a>
+            </li>
+            <li>
+                <a href="/Home/Index/OpinionList">Feedback list</a>
+            </li>
+        </ul>
+    </nav>
+
+    <form>
+        <table class="table1" name="table1">
+            <tr>
+                <td colspan="2" style="border: none;">
+                    <p>Personal Information</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Last Name</th>
+                <td>@Model.LastName</td>
+            </tr>
+            <tr>
+                <th>First Name</th>
+                <td>@Model.FirstName</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>@Model.Gender</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>@Model.Adresse</td>
+            </tr>
+            <tr>
+                <th>Zip Code</th>
+                <td>@Model.ZipCode</td>
+            </tr>
+            <tr>
+                <th>Town</th>
+                <td>@Model.Town</td>
+            </tr>
+            <tr>
+                <th>Email Adresse</th>
+                <td>@Model.Email</td>
+            </tr>
+        </table><br />
+
+        <table class="table2" name="table2">
+            <tr>
+                <td colspan="2" style="border: none;">
+                    <p>Training Information</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Start date training</th>
+                <td>@Model.Date.ToShortDateString()</td>
+            </tr>
+            <tr>
+                <th>Type of Training</th>
+                <td>@Model.Training</td>
+            </tr>
+        </table><br />
+
+        <table class="table3" name="table3">
+            <tr>
+                <td colspan="2" style="border: none;">
+                    <p>Training Reviews</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Cobol Training</th>
+                <td>@Model.Review1</td>
+            </tr>
+            <tr>
+                <th>C# Training</th>
+                <td>@Model.Review2</td>
+            </tr>
+        </table><br />
+
+    </form>
+
+</body>
+

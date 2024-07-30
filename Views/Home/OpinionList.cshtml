@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TPLOCAL1_MHN.Models.Opinion>
+<head>
+    <title>Liste des Avis</title>
+    <link rel="stylesheet" href="~/css/form.css" />
+</head>
+
+<body>
+    <header>
+        <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
+        <h1>Feedback List</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="/Home/Index">Home</a>
+            </li>
+            <li>
+                <a href="/Home/Index/Form">Fill in the form</a>
+            </li>
+        </ul>
+    </nav>
+
+    <table class="opinionTable">
+        <thead>
+            <tr>
+                <td colspan="3" style="border: none;">
+                    <p>Opinions List</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Avis</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var opinion in Model)
+            {
+                <tr>
+                    <td>@opinion.Nom</td>
+                    <td>@opinion.Prenom</td>
+                    <td style="background-color: @(opinion.Avis == "O" ? "green" : "red");">
+                        @(opinion.Avis == "O" ? "Yes" : "No")
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+
